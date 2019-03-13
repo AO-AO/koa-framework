@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "lib": ["es7"],
+        "module": "commonjs",
+        "target": "es2017",
+        "declaration": false,
+        "experimentalDecorators": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "forceConsistentCasingInFileNames": true,
+        "noUnusedLocals": true,
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "inlineSourceMap": true,
+        "noEmitOnError": false,
+        "types": ["node"],
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "rootDir": "./src",
+        "outDir": "./dist"
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.d.ts",
+        "**/*.js"
+    ]
+}
