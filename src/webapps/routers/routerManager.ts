@@ -8,6 +8,10 @@ import {
     INTERNAL_SERVER_ERROR,
 } from '../errors';
 
+const CONTROLLERSDIR = `${__dirname}/../controllers`;
+
+export { Context } from 'koa';
+
 export const globalRouter = new Router();
 
 export enum RequestMethod {
@@ -40,6 +44,7 @@ export function controllerManager (params: ControllerParams) {
             target.prototype.router.use(...middlewares);
         }
         globalRouter.use(prefix, target.prototype.router.routes(), target.prototype.router.allowedMethods());
+        console.log(globalRouter.stack.map((i) => i.path));
     };
 }
 
@@ -56,8 +61,8 @@ export function methodManager (params: MethodParams): MethodDecorator {
         }
         target.constructor.prototype.router[method](
             path,
-            ...middlewares,
             responseMethod(description.value),
+            ...middlewares,
         );
     };
 }
@@ -94,7 +99,7 @@ function errorHandler (ctx: Context, err: Error) {
 }
 
 // 显示require所有的controller
-const allControllerFiles = listFileNames(`${__dirname}/../controllers`);
+const allControllerFiles = listFileNames(CONTROLLERSDIR);
 allControllerFiles.forEach((absolutePath) => {
     require(absolutePath);
 });
