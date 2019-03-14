@@ -5,7 +5,7 @@ export interface UserMetadata {
     platform: string;
     phone?: string;
     avatar?: string;
-};
+}
 
 export class User {
     private userInfo: UserMetadata;
@@ -16,11 +16,11 @@ export class User {
         this.dbClient = new DB('User');
     }
 
-    async getUserInfo (userID: string) {
+    public async getUserInfo (userID: string) {
         return this.dbClient.scan();
     }
 
-    setUserInfo (userInfo: UserMetadata) {
+    public setUserInfo (userInfo: UserMetadata) {
         return this.dbClient.write(this.userInfo);
     }
 }

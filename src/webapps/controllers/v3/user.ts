@@ -4,11 +4,11 @@ import {
     RequestMethod
 } from '../../routers/routerManager';
 
-@controllerManager({ prefix: '/api/v1/user'})
+@controllerManager({ prefix: '/api/v3/user'})
 export class User {
     @methodManager({path: '/info', method: RequestMethod.GET})
     public async getUser () {
-        console.log('GET api/v1/user');
-        return 'helloWord';
+        console.log('GET api/v3/user');
+        throw (new Error('hhhhhhhhhh'));
     }
 }
