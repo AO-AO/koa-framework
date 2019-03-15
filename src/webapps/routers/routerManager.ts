@@ -10,7 +10,12 @@ import {
 
 const CONTROLLERSDIR = `${__dirname}/../controllers`;
 
-export { Context } from 'koa';
+export {
+    Context,
+} from 'koa';
+
+// tslint:disable-next-line:no-any
+export type Next = () => Promise<any>;
 
 export const globalRouter = new Router();
 
@@ -61,8 +66,8 @@ export function methodManager (params: MethodParams): MethodDecorator {
         }
         target.constructor.prototype.router[method](
             path,
-            responseMethod(description.value),
             ...middlewares,
+            responseMethod(description.value),
         );
     };
 }
@@ -70,7 +75,7 @@ export function methodManager (params: MethodParams): MethodDecorator {
 // tslint:disable-next-line:no-any
 function responseMethod (controllerMethod: (context: Context) => Promise<any>) {
     // tslint:disable-next-line:no-any
-    return async (context: Context, next: () => Promise<any>) => {
+    return async (context: Context, next: Next) => {
         try {
             const resultData = await controllerMethod(context);
             const result = {
