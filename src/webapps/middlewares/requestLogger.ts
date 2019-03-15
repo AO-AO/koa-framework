@@ -1,7 +1,27 @@
 import {
     Context,
-} from 'koa';
+    Next
+} from '../routers/routerManager';
 
-export async function requestLogger (ctx: Context) {
-    ctx.requestLogger = console;
+import {
+    initLogger,
+    LogType,
+} from '../../drivers/logger';
+
+const logger = initLogger('requestLogger', LogType.webapps);
+
+function genRequestID () {
+    let template = '####-####';
+    while (template.includes('#')) {
+        template = template.replace('#', Math.floor((Math.random() * 10)).toString());
+    }
+    return template;
+}
+
+// tslint:disable-next-line:no-any
+export async function requestLogger (ctx: Context, next: Next) {
+
+    const uuidLog = logger.child({ requestID: genRequestID() });
+    ctx.requestLogger = uuidLog;
+    await next();
 }

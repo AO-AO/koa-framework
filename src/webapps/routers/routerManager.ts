@@ -7,12 +7,9 @@ import {
     ERRORS,
     INTERNAL_SERVER_ERROR,
 } from '../errors';
+import { Logger } from 'winston';
 
 const CONTROLLERSDIR = `${__dirname}/../controllers`;
-
-export {
-    Context,
-} from 'koa';
 
 // tslint:disable-next-line:no-any
 export type Next = () => Promise<any>;
@@ -23,6 +20,12 @@ export enum RequestMethod {
     GET = 'get',
     POST = 'post',
     DELETE = 'delete',
+}
+
+export { Context } from 'koa';
+
+export interface ContextWithLogger extends Context {
+    requestLogger: Logger;
 }
 
 export interface ControllerParams {
