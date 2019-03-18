@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "jsonwebtoken": "8.5.0",
     "koa": "2.7.0",
     "koa-router": "7.4.0",
     "typescript": "3.1.6",
@@ -11,6 +12,7 @@
     "winston-daily-rotate-file": "3.8.0"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^8.3.2",
     "@types/koa": "2.0.48",
     "@types/koa-router": "7.0.40",
     "@types/node": "11.11.3",
