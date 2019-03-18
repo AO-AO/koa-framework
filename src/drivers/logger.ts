@@ -4,6 +4,7 @@ import {
     transports,
     LoggerOptions,
 } from 'winston';
+import * as DailyRotateFile from 'winston-daily-rotate-file';
 
 let logLevel = 'debug';
 switch (process.env.NODE_ENV) {
@@ -22,9 +23,13 @@ export function initLogger (label: string, type: LogType) {
     if (loggers.has(label)) {
         return loggers.get(label);
     }
-    const logFilePath = `${__dirname}/../../logs/${type}/${label}.log`;
-    const fileTransportsOptions: transports.FileTransportOptions = {
-        filename: logFilePath,
+    const rotateLogFileDir = `${__dirname}/../../logs/${type}/`;
+    const rotateLogFileName = `${label}-%DATE%.log`;
+    const rotateFileTransportOptions: DailyRotateFile.DailyRotateFileTransportOptions = {
+        dirname: rotateLogFileDir,
+        filename: rotateLogFileName,
+        datePattern: 'YYYY-MM-DD-HH',
+        maxFiles: '1d',
     };
     const logOptions: LoggerOptions = {
         level: logLevel,
@@ -37,7 +42,7 @@ export function initLogger (label: string, type: LogType) {
         ),
         transports: [
             new transports.Console(),
-            new transports.File(fileTransportsOptions),
+            new DailyRotateFile(rotateFileTransportOptions),
         ],
     };
     loggers.add(label, logOptions);
