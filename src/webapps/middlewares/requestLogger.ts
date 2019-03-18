@@ -8,7 +8,7 @@ import {
     LogType,
 } from '../../drivers/logger';
 
-const logger = initLogger('requestLogger', LogType.webapps);
+const logger = initLogger('requestLogger', LogType.WEBAPPS);
 
 function genRequestID () {
     let template = '####-####';

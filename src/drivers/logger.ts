@@ -14,9 +14,9 @@ switch (process.env.NODE_ENV) {
 }
 
 export enum LogType {
-    'webapps',
-    'boss',
-    'test',
+    WEBAPPS = 'webapps',
+    BOSS = 'boss',
+    TEST = 'test',
 }
 
 export function initLogger (label: string, type: LogType) {

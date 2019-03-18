@@ -3,7 +3,7 @@ import {
     initLogger,
     LogType,
 } from '../../drivers/logger';
-const logger = initLogger('AccessLogger', LogType.webapps);
+const logger = initLogger('AccessLogger', LogType.WEBAPPS);
 
 export async function responseTime (ctx: Context, next: Next) {
     const start = Date.now();
