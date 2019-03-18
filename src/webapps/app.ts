@@ -1,6 +1,6 @@
 import * as Koa from 'koa';
 import { globalRouter } from './routers/routerManager';
-import { requestLogger } from './middlewares/requestLogger';
+import { requestLogger } from './middlewares/loggers/requestLogger';
 import { initLogger, LogType } from '../drivers/logger';
 
 const appLogger = initLogger('APP', LogType.WEBAPPS);

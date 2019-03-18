@@ -1,12 +1,12 @@
 import {
     Context,
     Next
-} from '../routers/routerManager';
+} from '../../routers/routerManager';
 
 import {
     initLogger,
     LogType,
-} from '../../drivers/logger';
+} from '../../../drivers/logger';
 
 const logger = initLogger('requestLogger', LogType.WEBAPPS);
 

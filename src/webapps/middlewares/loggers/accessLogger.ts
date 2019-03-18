@@ -1,8 +1,8 @@
-import { Context, Next } from '../routers/routerManager';
+import { Context, Next } from '../../routers/routerManager';
 import {
     initLogger,
     LogType,
-} from '../../drivers/logger';
+} from '../../../drivers/logger';
 const logger = initLogger('AccessLogger', LogType.WEBAPPS);
 
 export async function responseTime (ctx: Context, next: Next) {
