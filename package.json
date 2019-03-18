@@ -1,0 +1,32 @@
+{
+  "name": "gx-koa-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "koa": "2.7.0",
+    "koa-router": "7.4.0",
+    "typescript": "3.1.6",
+    "winston": "3.2.1",
+    "winston-daily-rotate-file": "3.8.0"
+  },
+  "devDependencies": {
+    "@types/koa": "2.0.48",
+    "@types/koa-router": "7.0.40",
+    "@types/node": "11.11.3",
+    "@types/winston": "2.4.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AO-AO/koa-framework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AO-AO/koa-framework/issues"
+  },
+  "homepage": "https://github.com/AO-AO/koa-framework#readme"
+}
