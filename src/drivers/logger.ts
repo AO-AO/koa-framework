@@ -5,6 +5,7 @@ import {
     LoggerOptions,
 } from 'winston';
 import * as DailyRotateFile from 'winston-daily-rotate-file';
+import { config } from '../config';
 
 let logLevel = 'debug';
 switch (process.env.NODE_ENV) {
@@ -28,8 +29,8 @@ export function initLogger (label: string, type: LogType) {
     const rotateFileTransportOptions: DailyRotateFile.DailyRotateFileTransportOptions = {
         dirname: rotateLogFileDir,
         filename: rotateLogFileName,
-        datePattern: 'YYYY-MM-DD-HH',
-        maxFiles: '1d',
+        datePattern: config.logger.rotate.datePattern,
+        maxFiles: config.logger.rotate.maxFiles,
     };
     const logOptions: LoggerOptions = {
         level: logLevel,

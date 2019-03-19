@@ -1,7 +1,8 @@
-import BaseConfig from './base';
+import { Config } from './base';
 
-class LocalConfig extends BaseConfig {
-
+export class LocalConfig extends Config {
+    constructor () {
+        super();
+        this.logLevel = 'debug';
+    }
 }
-
-export default LocalConfig;

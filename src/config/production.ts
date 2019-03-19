@@ -1,7 +1,8 @@
-import BaseConfig from './base';
+import { Config } from './base';
 
-class ProductionConfig extends BaseConfig {
-
+export class ProductionConfig extends Config {
+    constructor () {
+        super();
+        this.logLevel = 'info';
+    }
 }
-
-export default ProductionConfig;
