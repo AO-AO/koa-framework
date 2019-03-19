@@ -14,7 +14,7 @@
         // 禁止导入package.json 中未声明的模块
         "no-implicit-dependencies": false,
         // 限制变量命名
-        "variable-name": false,
+        "variable-name": [true, "ban-keywords", "check-format", "require-const-for-all-caps", "allow-leading-underscore"],
         // 对象字面量必须按key排序
         "object-literal-sort-keys": false,
         // 对象、数组、结构赋值的最后一项不需要逗号
@@ -162,6 +162,8 @@
         // 函数名前必须有空格
         "space-before-function-paren": true,
         // 禁止出现 foo['bar']，必须写成 foo.bar
-        "no-string-literal": true
+        "no-string-literal": true,
+        // 文件名为驼峰格式
+        "file-name-casing": [true, "camel-case"]
     }
 }
