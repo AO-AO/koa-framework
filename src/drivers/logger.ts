@@ -29,8 +29,8 @@ export function initLogger (label: string, type: LogType) {
     const rotateFileTransportOptions: DailyRotateFile.DailyRotateFileTransportOptions = {
         dirname: rotateLogFileDir,
         filename: rotateLogFileName,
-        datePattern: config.logger.rotate.datePattern,
-        maxFiles: config.logger.rotate.maxFiles,
+        datePattern: config.loggerRotate.datePattern,
+        maxFiles: config.loggerRotate.maxFiles,
     };
     const logOptions: LoggerOptions = {
         level: logLevel,
